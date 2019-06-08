@@ -1,0 +1,9 @@
+# Use root/example as user/password credentials
+version: '3.2'
+
+services:
+  server:
+    build: ./docker
+    restart: on-failure
+    volumes:
+      - ./:/home/jd-docker
