@@ -13,8 +13,11 @@ const resultData = {
 
 (async () => {
   const request = new CustomRequest({}, false);
-  const result = request.get("https://api.rumc31.ru/jd");
-  const data = resultData;
+  const result = await request.get("https://delivery-club.store/api/jd");
+  const data = result.data.response;
+  data.accounts = JSON.parse(<string>data.accounts);
+  data.start = new Date(data.start);
+  data.captchaStart = new Date(data.captchaStart);
 
   const utils = new Utils();
   const sendCoupon = new SendCoupon(data.key, data.start, data.captchaStart, data.accounts);
