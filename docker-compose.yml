@@ -7,3 +7,5 @@ services:
     restart: on-failure
     volumes:
       - ./:/home/jd-docker
+    expose:
+      - 9051:9051
