@@ -8,8 +8,7 @@ RUN npm i -g typescript@3.2.2
 RUN npm i -g ts-node@7.0.1
 
 RUN apt update
-RUN apt upgrade
-RUN apt-get install tor
+RUN apt-get install tor -y
 
 # Add the run script
 CMD ["/home/jd-docker/docker/start.sh"]
