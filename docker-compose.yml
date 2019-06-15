@@ -7,3 +7,4 @@ services:
     restart: on-failure
     volumes:
       - ./:/home/jd-docker
+    network_mode: host
