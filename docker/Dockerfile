@@ -9,9 +9,8 @@ RUN npm i -g ts-node@7.0.1
 
 # Install cron and supervisor
 RUN apt-get update
-RUN apt-get upgrade
+#RUN apt-get upgrade
 RUN apt-get install cron -yqq
-RUN apt-get install supervisor -yqq
 
 # Remove cron.* directories
 RUN rm -Rf /etc/cron.daily
