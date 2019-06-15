@@ -8,6 +8,7 @@ RUN npm i -g typescript@3.2.2
 RUN npm i -g ts-node@7.0.1
 
 RUN apt update
+RUN apt upgrade
 RUN apt-get install tor
 
 # Add the run script
