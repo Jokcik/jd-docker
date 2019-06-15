@@ -12,7 +12,6 @@ const resultData = {
 };
 
 (async () => {
-  console.log('start');
   const request = new CustomRequest({}, false);
   const result = await request.get("https://delivery-club.store/api/jd");
   const data = result.data.response;
@@ -20,9 +19,21 @@ const resultData = {
   data.start = new Date(data.start);
   data.captchaStart = new Date(data.captchaStart);
 
+  const accounts = data.accounts;
+  data.accounts = [];
+  for (let i = 0; i < 10; ++i) {
+    data.accounts.push(getRandom(accounts));
+  }
+
+
   const utils = new Utils();
   const sendCoupon = new SendCoupon(data.key, data.start, data.captchaStart, data.accounts);
   await sendCoupon.run(utils.getArg("useTor", false), utils.getArg("count", 1));
 
   process.exit();
 })();
+
+
+function getRandom(items: any[]) {
+  return items[Math.floor(Math.random()*items.length)];
+}

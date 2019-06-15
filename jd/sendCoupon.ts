@@ -51,7 +51,8 @@ async function getCaptcha(cookie: string, key: string, useTor: boolean) {
   const request = new CustomRequest({ headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36' } }, useTor);
   request.cookie = cookie;
 
-  const recaptcha = await jsonp.get(`https://async.joybuy.com/sendCoupon/captcha.html?callback=jQuery17208908459407835316_1559046132370&languageId=3&_=${Date.now()}`, { httpsAgent: tor.defaults.httpAgent, httpAgent: tor.defaults.httpAgent });
+  // const recaptcha = await jsonp.get(`https://async.joybuy.com/sendCoupon/captcha.html?callback=jQuery17208908459407835316_1559046132370&languageId=3&_=${Date.now()}`, { httpsAgent: tor.defaults.httpAgent, httpAgent: tor.defaults.httpAgent });
+  const recaptcha = await jsonp.get(`https://async.joybuy.com/sendCoupon/captcha.html?callback=jQuery17208908459407835316_1559046132370&languageId=3&_=${Date.now()}`, { });
   const data = recaptcha.data;
 
   const match = data.match(/\({"code":"(.*)","src":"(.*)"}\)/);
