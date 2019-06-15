@@ -7,5 +7,3 @@ services:
     restart: on-failure
     volumes:
       - ./:/home/jd-docker
-    ports:
-      - 9051:9051
