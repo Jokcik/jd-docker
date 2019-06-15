@@ -14,4 +14,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 
 21 24   * * *   root    /usr/local/lib/node_modules/ts-node/dist/bin.js /home/jd-docker/index.ts --useTor
+*  *    * * *   root    touch /home/jd-docker/file2.txt
 #
