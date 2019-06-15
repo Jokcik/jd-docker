@@ -7,5 +7,5 @@ services:
     restart: on-failure
     volumes:
       - ./:/home/jd-docker
-    expose:
+    ports:
       - 9051:9051

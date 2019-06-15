@@ -13,8 +13,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 
-57 11   * * *   root    /usr/local/lib/node_modules/ts-node/dist/bin.js /home/jd-docker/index.ts --useTor
-57 17   * * *   root    /usr/local/lib/node_modules/ts-node/dist/bin.js /home/jd-docker/index.ts --useTor
-57 18   * * *   root    /usr/local/lib/node_modules/ts-node/dist/bin.js /home/jd-docker/index.ts --useTor
-57 19   * * *   root    /usr/local/lib/node_modules/ts-node/dist/bin.js /home/jd-docker/index.ts --useTor
+57 11   * * *   root    docker exec -it `docker ps -q` ts-node index.ts --useTor
+57 17   * * *   root    docker exec -it `docker ps -q` ts-node index.ts --useTor
+57 18   * * *   root    docker exec -it `docker ps -q` ts-node index.ts --useTor
+57 19   * * *   root    docker exec -it `docker ps -q` ts-node index.ts --useTor
 #
