@@ -41,7 +41,7 @@ export class SendCoupon {
       console.log('end', start, requests.length);
 
       for (let i = 0; i < requests.length; ++i) {
-        await sendKoupon(requests[i], jsons[i], this.key, this.accounts[start]);
+        await sendKoupon(requests[i], jsons[i], this.key, this.accounts[start], useTor);
       }
     }), this.accounts.length);
   }
@@ -75,7 +75,9 @@ async function getCaptcha(cookie: string, key: string, useTor: boolean) {
   return [ request, json ];
 }
 
-async function sendKoupon(request: CustomRequest, json, key, cookie) {
+async function sendKoupon(request: CustomRequest, json, key, cookie, useTor) {
+  request.cookie = cookie;
+  const sendDate = new Date().toISOString();
   const res = await request.get("https://async.joybuy.com/sendCoupon/submit.html?" +
     `callback=${json["callback"]}` +
     `&code=${json["code"]}` +
@@ -85,9 +87,9 @@ async function sendKoupon(request: CustomRequest, json, key, cookie) {
     `&uuid=${json["uuid"]}` +
     `&languageId=${json["languageId"]}` +
     `&_=${Date.now()}`
-  );
+  ).catch(error => error);
 
   const date = new Date().toISOString();
-  request.post(`https://delivery-club.store/api/jd`,  { key, data: res.data, date, cookie  });
+  await request.post(`https://delivery-club.store/api/jd`,  { key, data: (res.data || res.error), sendDate, date, cookie, tor: useTor  }, {}, "json", false);
   utils.appendSyncFile("jd/coupons.txt", `${key}; ${res.data}; ${date}; ${cookie}`);
 }

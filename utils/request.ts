@@ -68,6 +68,7 @@ export class CustomRequest {
   public async get(url: string, config: AxiosRequestConfig = {}) {
     config = { ...this.config, ...config };
     config.headers = { ...this.defaultHeaders, ...config.headers };
+    config.headers.cookie = config.headers.cookie || this.cookie;
 
     const response = await this.inst.get(url, config);
     this.cookie = (response.headers['set-cookie'] || []).join(';');
@@ -82,7 +83,8 @@ export class CustomRequest {
     let body;
     switch (type) {
       case "json":
-        body = JSON.stringify(data);
+        // body = JSON.stringify(data);
+        body = data;
         break;
       case "url":
         const params = new URLSearchParams();
