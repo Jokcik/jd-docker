@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 echo "start script"
-ts-node /Users/danilmihajlovic/WebstormProjects/jd-docker/index.ts
+/usr/bin/docker exec -it `/usr/bin/docker ps -q` ts-node index.ts --useTor
