@@ -13,7 +13,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
 52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
 
-20 8    * * *   root    /bin/sh /home/store/jd-docker/start_jd.sh >> /var/log/myjob0.log 2>&1
+28 8    * * *   root    /bin/sh /home/store/jd-docker/start_jd.sh >> /var/log/myjob0.log 2>&1
 
 57 8    * * *   root    /bin/sh /home/store/jd-docker/start_jd.sh >> /var/log/myjob1.log 2>&1
 57 14   * * *   root    /bin/sh /home/store/jd-docker/start_jd.sh >> /var/log/myjob2.log 2>&1
