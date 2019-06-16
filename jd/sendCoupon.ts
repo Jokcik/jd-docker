@@ -34,9 +34,9 @@ export class SendCoupon {
       console.log('start', start, requests.length);
       const startTime = +sendDate - Date.now();
       if (useTor) {
-        await utils.sleep(startTime - utils.randomBetween(300, 3000));
+        await utils.sleep(startTime - utils.randomBetween(2500, 3500));
       } else {
-        await utils.sleep(startTime - utils.randomBetween(300, 500));
+        await utils.sleep(startTime - utils.randomBetween(800, 1500));
       }
       console.log('end', start, requests.length);
 
