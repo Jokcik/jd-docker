@@ -52,7 +52,7 @@ async function getCaptcha(cookie: string, key: string, useTor: boolean) {
   request.cookie = cookie;
 
   // const recaptcha = await jsonp.get(`https://async.joybuy.com/sendCoupon/captcha.html?callback=jQuery17208908459407835316_1559046132370&languageId=3&_=${Date.now()}`, { httpsAgent: tor.defaults.httpAgent, httpAgent: tor.defaults.httpAgent });
-  const recaptcha = await jsonp.get(`https://async.joybuy.com/sendCoupon/captcha.html?callback=jQuery17208908459407835316_1559046132370&languageId=3&_=${Date.now()}`, { });
+  const recaptcha = await jsonp.get(`https://async.joybuy.com/sendCoupon/captcha.html?callback=jQuery17201279336865508034_1560788968834&languageId=3&_=${Date.now()}`, { });
   const data = recaptcha.data;
 
   const match = data.match(/\({"code":"(.*)","src":"(.*)"}\)/);
@@ -63,7 +63,7 @@ async function getCaptcha(cookie: string, key: string, useTor: boolean) {
   const code = resultAnticaptcha.solution.text;
 
   const json = {
-    callback: "jQuery17208908459407835316_1559046132370",
+    callback: "jQuery17201279336865508034_1560788968834",
     code: code,
     eid: "EREGJGEKAJYMUPJAYWJ2YGYCGSKFD4UNSB63CPYT45QRL3K3OD7CC45VA6IHEZFHVS5MCL5LKF4JN3Z5E7IWDAX2ZA",
     key: key,
