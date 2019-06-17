@@ -21,7 +21,7 @@ const resultData = {
 
   const accounts = data.accounts;
   data.accounts = [];
-  for (let i = 0; i < 20; ++i) {
+  for (let i = 0; i < 10; ++i) {
     data.accounts.push(getRandom(accounts));
   }
 
